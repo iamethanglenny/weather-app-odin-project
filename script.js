@@ -7,6 +7,10 @@ function getUserInput() {
 
 
 
+const temperatureHeading = document.createElement("h1");
+
+
+
 
 
 
@@ -24,28 +28,22 @@ async function fetchWeatherData(location) {
         if (!response.ok) throw new Error(`Error: ${response.statusText}`);
 
         const actualData = await response.json();
-        console.log(actualData);
-        return actualData;
+        console.log("Raw Data: ", actualData);
+
+        const weatherInfo = {
+            temperature: actualData.currentConditions.temp,
+            conditions: actualData.currentConditions.conditions,
+            feelslike: actualData.currentConditions.feelslike,
+            description: actualData.description,
+            location: actualData.address
+        };
+
+        console.log("Processed Weather Data:", weatherInfo);
+        return weatherInfo;
+
     } catch (error) {
         console.error('Error fetching weather data:', error);
     } 
 }
 
 fetchWeatherData("London");
-
-function processWeatherData(actualData) {
-    if (!data || !data.currentConditions) return null;
-
-    const processedData = {
-        location: data.resolvedAddress,
-        temperature: data.currentConditions.temp,
-        humidity: data.currentConditions.humidity,
-        description: data.currentConditions.conditions,
-        windSpeed: data.currentConditions.windspeed,
-        precipitation: data.currentConditions.precip,
-    };
-
-    console.log(processedData); 
-    return processedData;
-}
-
