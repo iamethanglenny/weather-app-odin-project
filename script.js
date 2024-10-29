@@ -3,7 +3,17 @@ function getUserInput() {
     return inputValue;
 }
 
+document.getElementById("searchBtn").addEventListener("click", () => {
+    const userInput = getUserInput();
+    fetchWeatherData(userInput);
+});
 
+document.getElementById("userinput").addEventListener("keyup", (e) => {
+    if (e.key === "Enter") {
+        const userInput = getUserInput();
+        fetchWeatherData(userInput);
+    }
+});
 
 
 
