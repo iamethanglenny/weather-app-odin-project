@@ -17,12 +17,14 @@ header {
     font-size: 2.5em; /* Large font size */
     margin: 0;
     color: #007aff; /* Apple blue color */
+    margin-top: 150px;
 }
 
 #subtitle {
     font-size: 1.2em; /* Smaller font size */
     margin: 0;
     color: #555; /* Soft gray for subtitle */
+    margin-top: 10px;
 }
 
 /* Search Bar Styles */
@@ -30,6 +32,7 @@ header {
     display: flex;
     justify-content: center; /* Center the search bar */
     margin-top: 20px; /* Space above the search bar */
+    margin-bottom: 50px;
 }
 
 #userInput {
@@ -62,4 +65,38 @@ header {
 
 #searchBtn:hover {
     background-color: #005bb5; /* Darker blue on hover */
+}
+
+.content {
+    margin-top: 20px; /* Space above the results */
+    padding: 20px; /* Padding inside the content area */
+    background-color: #ffffff; /* White background for the results */
+    border-radius: 12px; /* Slightly rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    max-width: 400px; /* Limit the maximum width */
+    margin-left: auto; /* Center align horizontally */
+    margin-right: auto; /* Center align horizontally */
+    text-align: center; /* Center text */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Heading Styles */
+.content h2 {
+    margin: 0 0 15px 0; /* Space below the heading */
+    font-size: 1.8em; /* Larger font size for the location */
+    color: #007aff; /* Apple blue color for the heading */
+    font-weight: 600; /* Semi-bold font weight */
+}
+
+/* Paragraph Styles */
+.content p {
+    margin: 8px 0; /* Margin for paragraphs */
+    color: #333; /* Dark text for better readability */
+    font-size: 1em; /* Standard font size */
+    line-height: 1.5; /* Line height for better spacing */
+}
+
+.content:hover {
+    transform: translateY(-5px); /* Move up slightly on hover */
+    box-shadow: 0 8px 25px rgba(0, 122, 255, 0.6); /* Darker shadow on hover */ /* Change background color on hover */
 }
