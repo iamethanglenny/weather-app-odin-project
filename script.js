@@ -15,7 +15,7 @@ function getUserInput() {
 
 
 
-async function getWeather(searchQuery) {
+async function fetchWeatherData(location) {
     const apiKey = 'KSWVD4E7GXMRRMVALYNN4YP4C';
     const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${encodeURIComponent(location)}?unitGroup=metric&key=${apiKey}&contentType=json`;
 
@@ -30,3 +30,22 @@ async function getWeather(searchQuery) {
         console.error('Error fetching weather data:', error);
     } 
 }
+
+fetchWeatherData("London");
+
+function processWeatherData(actualData) {
+    if (!data || !data.currentConditions) return null;
+
+    const processedData = {
+        location: data.resolvedAddress,
+        temperature: data.currentConditions.temp,
+        humidity: data.currentConditions.humidity,
+        description: data.currentConditions.conditions,
+        windSpeed: data.currentConditions.windspeed,
+        precipitation: data.currentConditions.precip,
+    };
+
+    console.log(processedData); 
+    return processedData;
+}
+
